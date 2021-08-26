@@ -1,5 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
+
+const styles = StyleSheet.create({
+    bg: {
+        width: '100%',
+        height: '100%'
+      }
+});
 
 const Obstacles = ({
     color,
@@ -7,7 +14,8 @@ const Obstacles = ({
     obstacleHeight, 
     randomBottom, 
     gap, 
-    obstaclesLeft}) => {
+    obstaclesLeft,
+}) => {
 
     return (
         <>
@@ -18,7 +26,9 @@ const Obstacles = ({
                 height: 500,
                 left: obstaclesLeft,
                 bottom: randomBottom + obstacleHeight + gap,
-            }}></View>
+            }}>
+                <ImageBackground source={require('../assets/asphalt.jpg')} resizeMode="repeat" style={styles.bg} />
+            </View>
             <View style={{
                 position: 'absolute',
                 backgroundColor: color,
@@ -26,7 +36,9 @@ const Obstacles = ({
                 height: obstacleHeight,
                 left: obstaclesLeft,
                 bottom: randomBottom,
-            }}></View>
+            }}>
+                <ImageBackground source={require('../assets/asphalt.jpg')} resizeMode="repeat" style={styles.bg} />
+            </View>
         </>
     )
 }
